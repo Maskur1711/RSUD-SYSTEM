@@ -32,9 +32,12 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useRouter } from "next/navigation";
+import { ArrowLeft } from "lucide-react";
 
 export default function TambahDataDokterPage() {
   const { user } = useAuth();
+  const router = useRouter();
 
   useEffect(() => {
     if (user === null) {
@@ -69,8 +72,16 @@ export default function TambahDataDokterPage() {
 
   return (
     <div className="container mx-auto p-6">
-      <h1 className="mb-6 text-3xl font-bold">Tambah Data Dokter</h1>
-
+      <h1 className="mb-6 flex items-center gap-2 text-3xl font-bold">
+        <button
+          type="button"
+          onClick={() => router.back()}
+          className="text-muted-foreground hover:text-foreground"
+        >
+          <ArrowLeft className="h-6 w-6" />
+        </button>
+        Tambah Data Dokter
+      </h1>{" "}
       <Card>
         <CardHeader>
           <CardTitle></CardTitle>
