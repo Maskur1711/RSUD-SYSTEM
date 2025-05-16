@@ -31,15 +31,9 @@ export default function DokterPage() {
       <h1 className="mb-6 text-3xl font-bold">Data Dokter</h1>
       <Card>
         <CardHeader>
-          <CardTitle>Daftar Dokter</CardTitle>
-          <CardDescription>Kelola data dokter di rumah sakit</CardDescription>
+          <CardTitle>Daftar Data Dokter</CardTitle>
         </CardHeader>
         <CardContent>
-          <p>Halaman ini berisi daftar dokter dan informasi terkait.</p>
-          <p>
-            Anda dapat menambahkan, mengedit, atau menghapus data dokter sesuai
-            kebutuhan.
-          </p>
           <DataTable />
         </CardContent>
       </Card>

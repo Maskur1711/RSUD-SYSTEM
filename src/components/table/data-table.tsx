@@ -217,9 +217,9 @@ export function DataTable() {
           className="max-w-sm"
         />
         <DropdownMenu>
-          <Link href="/master/karyawan/dokter/tambah">
-            <Button variant="outline" className="ml-auto">
-              Tambah Data Dokter <Plus />
+          <Link href="/master/karyawan/pasien/tambah">
+            <Button variant="outline" className="ml-auto cursor-pointer">
+              Tambah Data Pasien <Plus />
             </Button>
           </Link>
         </DropdownMenu>
