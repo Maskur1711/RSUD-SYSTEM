@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Next.js App with Sidebar",
+  title: "RSUD Holis",
   description: "A Next.js app with sidebar navigation, login and registration",
 };
 

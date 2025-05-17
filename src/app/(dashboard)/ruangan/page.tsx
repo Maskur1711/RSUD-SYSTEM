@@ -11,6 +11,8 @@ import {
 import { redirect } from "next/navigation";
 import { useEffect } from "react";
 
+import CardRuangan from "@/components/card/page";
+
 export default function RuanganPage() {
   const { user } = useAuth();
 
@@ -29,18 +31,7 @@ export default function RuanganPage() {
     <div className="container mx-auto p-6">
       <h1 className="mb-6 text-3xl font-bold">Manajemen Ruangan</h1>
       <Card>
-        <CardHeader>
-          <CardTitle>Daftar Ruangan</CardTitle>
-          <CardDescription>
-            Kelola ruangan dan tempat tidur di rumah sakit
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <p>
-            Halaman ini berisi daftar ruangan, ketersediaan tempat tidur, dan
-            informasi terkait.
-          </p>
-        </CardContent>
+        <CardRuangan />
       </Card>
     </div>
   );

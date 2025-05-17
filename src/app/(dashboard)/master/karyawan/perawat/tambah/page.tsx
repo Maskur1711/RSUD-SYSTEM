@@ -12,7 +12,7 @@ import { redirect } from "next/navigation";
 import { useEffect } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { PasienSchema, type PasienFormValues } from "@/lib/schemas";
+import { dokterSchema, type DokterFormValues } from "@/lib/schemas";
 import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
@@ -35,7 +35,7 @@ import {
 import { useRouter } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 
-export default function TambahDataPasienPage() {
+export default function TambahDataDokterPage() {
   const { user } = useAuth();
   const router = useRouter();
 
@@ -47,8 +47,8 @@ export default function TambahDataPasienPage() {
 
   if (!user) return null;
 
-  const form = useForm<PasienFormValues>({
-    resolver: zodResolver(PasienSchema),
+  const form = useForm<DokterFormValues>({
+    resolver: zodResolver(dokterSchema),
     defaultValues: {
       nama: "",
       nib: "",
@@ -59,10 +59,10 @@ export default function TambahDataPasienPage() {
     },
   });
 
-  function onSubmit(data: PasienFormValues) {
+  function onSubmit(data: DokterFormValues) {
     toast.custom(() => (
       <div className="mt-2 w-[340px] rounded-md bg-slate-950 p-4 text-white">
-        <p className="font-bold mb-2">Data Pasien Terkirim:</p>
+        <p className="font-bold mb-2">Data Dokter Terkirim:</p>
         <pre>
           <code>{JSON.stringify(data, null, 2)}</code>
         </pre>
@@ -80,7 +80,7 @@ export default function TambahDataPasienPage() {
         >
           <ArrowLeft className="h-6 w-6" />
         </button>
-        Tambah Data Pasien
+        Tambah Data Dokter
       </h1>{" "}
       <Card>
         <CardHeader>
@@ -101,7 +101,7 @@ export default function TambahDataPasienPage() {
                     <FormItem>
                       <FormLabel>Nama</FormLabel>
                       <FormControl>
-                        <Input placeholder="Nama Pasien" {...field} />
+                        <Input placeholder="Nama Dokter" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>

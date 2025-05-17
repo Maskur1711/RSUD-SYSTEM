@@ -73,7 +73,11 @@ const generateInitialData = (): Dokter[] => {
   ];
 };
 
-export function DataTable() {
+export function DataTable({
+  addButtonText = "Tambah Data Dokter",
+}: {
+  addButtonText?: string;
+}) {
   const [data, setData] = React.useState<Dokter[]>(generateInitialData());
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
@@ -217,9 +221,9 @@ export function DataTable() {
           className="max-w-sm"
         />
         <DropdownMenu>
-          <Link href="/master/karyawan/pasien/tambah">
+          <Link href="/pasien/tambah">
             <Button variant="outline" className="ml-auto cursor-pointer">
-              Tambah Data Pasien <Plus />
+              {addButtonText} <Plus />
             </Button>
           </Link>
         </DropdownMenu>

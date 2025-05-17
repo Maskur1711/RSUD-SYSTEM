@@ -10,8 +10,9 @@ import {
 } from "@/components/ui/card";
 import { redirect } from "next/navigation";
 import { useEffect } from "react";
+import { DataTable } from "@/components/table/data-table";
 
-export default function StaffPage() {
+export default function DokterPage() {
   const { user } = useAuth();
 
   // Redirect if not logged in
@@ -27,14 +28,13 @@ export default function StaffPage() {
 
   return (
     <div className="container mx-auto p-6">
-      <h1 className="mb-6 text-3xl font-bold">Data Staff</h1>
+      <h1 className="mb-6 text-3xl font-bold">Data Dokter</h1>
       <Card>
         <CardHeader>
-          <CardTitle>Daftar Staff</CardTitle>
-          <CardDescription>Kelola data staff di rumah sakit</CardDescription>
+          <CardTitle>Daftar Data Staff</CardTitle>
         </CardHeader>
         <CardContent>
-          <p>Halaman ini berisi daftar staff dan informasi terkait.</p>
+          <DataTable addButtonText="Tambah Staff" />
         </CardContent>
       </Card>
     </div>

@@ -34,7 +34,7 @@ export default function DokterPage() {
           <CardTitle>Daftar Data Dokter</CardTitle>
         </CardHeader>
         <CardContent>
-          <DataTable />
+          <DataTable addButtonText="Tambah Dokter" />
         </CardContent>
       </Card>
     </div>

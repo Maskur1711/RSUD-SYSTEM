@@ -41,17 +41,56 @@ export const dokterSchema = z.object({
     message: "Nomor HP harus 10-15 digit angka",
   }),
 });
+
 export const PasienSchema = z.object({
-  nama: z.string().min(2, { message: "Nama wajib diisi" }),
-  nib: z.string().min(1, { message: "NIB wajib diisi" }),
-  bidang: z.enum(["Umum", "Spesialis", "Forensik", "Olahraga"], {
-    required_error: "Pilih salah satu bidang",
+  // Identitas Pasien
+  namaLengkap: z.string().min(2, { message: "Nama wajib diisi" }),
+  tempatTanggalLahir: z
+    .string()
+    .min(3, { message: "Tempat & Tanggal Lahir wajib diisi" }),
+  alamatLengkap: z.string().min(5, { message: "Alamat wajib diisi" }),
+  jenisKelamin: z.enum(["Laki-laki", "Perempuan"], {
+    required_error: "Pilih jenis kelamin",
   }),
-  email: z.string().email({ message: "Email tidak valid" }),
-  alamat: z.string().min(5, { message: "Alamat wajib diisi" }),
-  nomorHandphone: z.string().regex(/^[0-9]{10,15}$/, {
-    message: "Nomor HP harus 10-15 digit angka",
+  pendidikan: z.string().min(2, { message: "Pendidikan wajib diisi" }),
+  pekerjaan: z.string().min(2, { message: "Pekerjaan wajib diisi" }),
+  agama: z.string().min(2, { message: "Agama wajib diisi" }),
+  nomorTelepon: z.string().regex(/^[0-9]{10,15}$/, {
+    message: "Nomor telepon harus 10-15 digit angka",
   }),
+
+  // Data Medis
+  keluhanUtama: z.string().min(2, { message: "Keluhan utama wajib diisi" }),
+  riwayatPenyakit: z
+    .string()
+    .min(2, { message: "Riwayat penyakit wajib diisi" }),
+  pemeriksaanFisik: z
+    .string()
+    .min(2, { message: "Pemeriksaan fisik wajib diisi" }),
+  pemeriksaanPenunjang: z
+    .string()
+    .min(2, { message: "Pemeriksaan penunjang wajib diisi" }),
+  diagnosis: z.string().min(2, { message: "Diagnosis wajib diisi" }),
+  rencanaPenatalaksanaan: z
+    .string()
+    .min(2, { message: "Rencana penatalaksanaan wajib diisi" }),
+
+  // Data Administrasi
+  nomorRekamMedis: z
+    .string()
+    .min(2, { message: "Nomor rekam medis wajib diisi" }),
+  nik: z.string().length(16, { message: "NIK harus 16 digit" }),
+  jaminanKesehatan: z
+    .string()
+    .min(2, { message: "Jaminan kesehatan wajib diisi" }),
+  penanggungJawab: z
+    .string()
+    .min(2, { message: "Penanggung jawab wajib diisi" }),
+
+  // Data Lainnya
+  kontakKeluarga: z.string().min(2, { message: "Kontak keluarga wajib diisi" }),
+  dataKunjungan: z.string().min(2, { message: "Data kunjungan wajib diisi" }),
+  dokumenPendukung: z.any().optional(), // Untuk file upload, bisa ditangani di backend
 });
 
 export type LoginFormValues = z.infer<typeof loginSchemas>;

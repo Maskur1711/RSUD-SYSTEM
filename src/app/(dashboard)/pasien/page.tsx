@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/card";
 import { redirect } from "next/navigation";
 import { useEffect } from "react";
+import { DataTable } from "@/components/table/data-table";
 
 export default function PasienPage() {
   const { user } = useAuth();
@@ -27,16 +28,13 @@ export default function PasienPage() {
 
   return (
     <div className="container mx-auto p-6">
-      <h1 className="mb-6 text-3xl font-bold">Manajemen Pasien</h1>
+      <h1 className="mb-6 text-3xl font-bold">Data Pasien</h1>
       <Card>
         <CardHeader>
-          <CardTitle>Daftar Pasien</CardTitle>
-          <CardDescription>
-            Kelola data pasien yang sedang dirawat
-          </CardDescription>
+          <CardTitle>Daftar Data Pasien</CardTitle>
         </CardHeader>
         <CardContent>
-          <p>Halaman ini berisi daftar pasien aktif dan informasi perawatan.</p>
+          <DataTable addButtonText="Tambah Pasien " />
         </CardContent>
       </Card>
     </div>
